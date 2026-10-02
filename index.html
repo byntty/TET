@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Түркістан өңірі — Шымкент пен Түркістан</title>
+<meta name="description" content="Шымкент пен Түркістандағы тарихи-мәдени орындардың интерактивті картасы: кесенелер, мұражайлар, көне қалашықтар.">
+<meta name="theme-color" content="#f7f2e8">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Орнамент үлгісі (екі жолақ та осыны қолданады) -->
+<svg class="svg-defs" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="orn" width="36" height="18" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+        <path d="M0 9h9M27 9h9"/>
+        <path d="M18 3.8 23.2 9 18 14.2 12.8 9z"/>
+        <circle cx="18" cy="9" r="1.1" fill="currentColor" stroke="none"/>
+      </g>
+    </pattern>
+  </defs>
+</svg>
+
+<!-- Бастапқы мәтіндер алынып тасталды: тек карта мен орындар тізімі қалды -->
+<div class="top-band" aria-hidden="true">
+  <div class="wrap band">
+    <svg class="ornament" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#orn)"/></svg>
+  </div>
+</div>
+
+<main class="wrap">
+  <h1 class="sr-only">Түркістан өңірі — интерактивті карта</h1>
+  <div class="layout">
+
+    <div class="map-col">
+      <section class="map-section" aria-label="Өңір картасы">
+        <div class="map-shell">
+          <svg class="ornament ornament--shell" preserveAspectRatio="none" aria-hidden="true"><rect width="100%" height="100%" fill="url(#orn)"/></svg>
+
+          <div class="map" id="map">
+            <!-- Карта 90° сағат бағытымен бұрылған (қараңғы жағы үстіне) -->
+            <img class="map-image" src="images/map.jpeg" width="888" height="1212"
+                 alt="Түркістан облысының картасы: Шымкент пен Түркістан қалалары белгіленген" draggable="false">
+
+            <div class="map-pins" id="mapPins"></div>
+
+            <div class="place-card" id="placeCard" hidden>
+              <button class="place-card-close" id="placeCardClose" type="button" aria-label="Жабу">×</button>
+              <img class="place-card-photo" id="placeCardPhoto" alt="" width="640" height="480" decoding="async">
+              <div class="place-card-body">
+                <p class="place-card-type" id="placeCardType"></p>
+                <h3 class="place-card-title" id="placeCardTitle"></h3>
+                <p class="place-card-text" id="placeCardText"></p>
+              </div>
+            </div>
+          </div>
+
+          <svg class="ornament ornament--shell ornament--bottom" preserveAspectRatio="none" aria-hidden="true"><rect width="100%" height="100%" fill="url(#orn)"/></svg>
+        </div>
+      </section>
+    </div>
+
+    <section class="places" aria-labelledby="placesTitle">
+      <h2 id="placesTitle">Барлық орындар</h2>
+      <ul class="places-list" id="placesList"></ul>
+    </section>
+
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
